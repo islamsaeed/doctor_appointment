@@ -1,0 +1,5 @@
+{
+  "editor.defaultFormatter": "shufo.vscode-blade-formatter",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true
+}

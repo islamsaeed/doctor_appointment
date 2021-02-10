@@ -34,12 +34,34 @@
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-left dropdown-menu-arrow" x-placement="bottom-end">
-                            <a href="#" class="dropdown-item d-flex ">
+
+
+
+                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+
+                            {{-- <a rel="alternate" hreflang="{{ $localeCode }}"
+                            href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                            {{ $properties['native'] }}
+                            </a> --}}
+                            <a class="dropdown-item d-flex " rel="alternate" hreflang="{{ $localeCode }}"
+                                href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                <span class=" avatar ml-3 align-self-center bg-transparent"><img
+                                        src="{{URL::asset('assets/img/flags/us_flag.jpg')}}" alt="img"></span>
+                                <div class="d-flex">
+                                    <span class="mt-2">{{ $properties['native'] }}</span>
+                                </div>
+                            </a>
+                            @endforeach
+
+
+
+
+                            {{-- <a href="#" class="dropdown-item d-flex ">
                                 <span class="avatar  ml-3 align-self-center bg-transparent"><img
                                         src="{{URL::asset('assets/img/flags/french_flag.jpg')}}" alt="img"></span>
-                                <div class="d-flex">
-                                    <span class="mt-2">French</span>
-                                </div>
+                            <div class="d-flex">
+                                <span class="mt-2">French</span>
+                            </div>
                             </a>
                             <a href="#" class="dropdown-item d-flex">
                                 <span class="avatar  ml-3 align-self-center bg-transparent"><img
@@ -68,7 +90,7 @@
                                 <div class="d-flex">
                                     <span class="mt-2">spain</span>
                                 </div>
-                            </a>
+                            </a> --}}
                         </div>
                     </div>
                 </li>
@@ -298,7 +320,8 @@
                         <div class="main-header-profile bg-primary p-3">
                             <div class="d-flex wd-100p">
                                 <div class="main-img-user"><img alt="" src="{{URL::asset('assets/img/faces/6.jpg')}}"
-                                        class=""></div>
+                                        class="">
+                                </div>
                                 <div class="mr-3 my-auto">
                                     <h6>{{ Auth::user()->name }}</h6><span>{{ Auth::user()->email }}</span>
                                 </div>
